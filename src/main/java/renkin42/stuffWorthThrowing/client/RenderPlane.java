@@ -1,5 +1,6 @@
 package renkin42.stuffWorthThrowing.client;
 
+import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -15,8 +16,9 @@ public class RenderPlane extends Render {
 	String textureName;
 	
 	public RenderPlane(String textureName) {
-		shadowSize = 0.5F;
-		this.textureName = textureName;
+            super(Minecraft.getMinecraft().getRenderManager());
+            shadowSize = 0.5F;
+            this.textureName = textureName;
 	}
 	
 	public void renderPlane(EntityThrowable entityThrowable,double par2, double par4, double par6, float par8, float par9) {

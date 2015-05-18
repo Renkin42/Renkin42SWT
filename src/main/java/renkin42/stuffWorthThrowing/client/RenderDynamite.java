@@ -1,5 +1,6 @@
 package renkin42.stuffWorthThrowing.client;
 
+import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -14,7 +15,8 @@ public class RenderDynamite extends Render {
 	ModelDynamite dynamiteModel = new ModelDynamite();
 	
 	public RenderDynamite() {
-		shadowSize = 0.5F;
+                super(Minecraft.getMinecraft().getRenderManager());
+                shadowSize = 0.5F;
 	}
 	
 	public void renderDynamite(EntityDynamite entityDynamite, double par2, double par4, double par6, float par8, float par9) {

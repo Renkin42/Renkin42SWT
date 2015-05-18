@@ -18,6 +18,9 @@ import renkin42.stuffWorthThrowing.entities.EntityTomahawk;
 import renkin42.stuffWorthThrowing.entities.EntityTorturedSoul;
 import renkin42.stuffWorthThrowing.items.StuffWorthThrowingItems;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.entity.RenderManager;
 
 public class ClientProxy extends CommonProxy {
 	Item thrownSnowballRock;
@@ -33,10 +36,13 @@ public class ClientProxy extends CommonProxy {
             	thrownDynamiteSnowball = StuffWorthThrowingItems.dynamiteSnowball;
             }
             
-            RenderingRegistry.registerEntityRenderingHandler(EntitySnowballRock.class, new RenderSnowball(thrownSnowballRock));
+            RenderManager renderManager = Minecraft.getMinecraft().getRenderManager();
+            RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+            
+            RenderingRegistry.registerEntityRenderingHandler(EntitySnowballRock.class, new RenderSnowball(renderManager, thrownSnowballRock, renderItem));
             RenderingRegistry.registerEntityRenderingHandler(EntityDynamite.class, new RenderDynamite());
-            RenderingRegistry.registerEntityRenderingHandler(EntityDynamiteSnowball.class, new RenderSnowball(thrownDynamiteSnowball));
-            RenderingRegistry.registerEntityRenderingHandler(EntityPurifiedSoul.class, new RenderSnowball(StuffWorthThrowingItems.purifiedSoul));
+            RenderingRegistry.registerEntityRenderingHandler(EntityDynamiteSnowball.class, new RenderSnowball(renderManager, thrownDynamiteSnowball, renderItem));
+            RenderingRegistry.registerEntityRenderingHandler(EntityPurifiedSoul.class, new RenderSnowball(renderManager, StuffWorthThrowingItems.purifiedSoul, renderItem));
             RenderingRegistry.registerEntityRenderingHandler(EntityLoveLetter.class, new RenderPlane("loveLetter"));
             RenderingRegistry.registerEntityRenderingHandler(EntityHateMail.class, new RenderPlane("hateMail"));
             RenderingRegistry.registerEntityRenderingHandler(EntityTorturedSoul.class, new RenderTorturedSoul("torturedSoul"));
