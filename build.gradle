@@ -22,12 +22,12 @@ import java.io.*
 apply plugin: 'forge'
 apply plugin: 'curseforge'
 
-version = "1710.1180.2.0"
+version = "1710.1180.2.0-beta"
 group= "com.renkin42.renkin42swt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Renkin42SWT"
 
 minecraft {
-    version = "1.7.10-10.13.0.1180"
+    version = "1.8-11.14.1.1334"
     assetDir = "eclipse/assets"
 }
 
@@ -37,7 +37,7 @@ curse {
 	changelog = """
 	2.0 port to 1.7.10.
 	"""
-	releaseType = "release"
+	releaseType = "beta"
 }
 
 processResources {
@@ -57,12 +57,12 @@ processResources {
     }
 }
 
-task twitter << {
+/*task twitter << {
 	// Don't try running this. You'll need the twitter4j.properties file
 	// To get the keys, go to dev.twitter.com and create a new app.
 	// Template for twitter4j.properties: https://gist.github.com/seratch/4238807
 	Twitter twitter = new TwitterFactory().getInstance()
-	ext.tweet = "Stuff Worth Throwing $project.curse.releaseType version $project.version is now live on curse! Check it out at http://www.curse.com/mc-mods/minecraft/stuff-worth-throwing #Minecraft #Gradle"
+	ext.tweet = "Stuff Worth Throwing $project.curse.releaseType version $project.version is now live on curse! Check it out at http://www.curse.com/mc-mods/minecraft/stuff-worth-throwing/$project.tasks.curse.fileId #Minecraft #Gradle"
 	Status status = twitter.updateStatus(tweet)
 	println("Successfully updated the status to [" + status.getText() + "].")
-}
+}*/
