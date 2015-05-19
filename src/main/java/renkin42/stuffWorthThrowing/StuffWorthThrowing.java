@@ -23,13 +23,14 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraftforge.common.config.Configuration;
 
-@Mod(modid = StuffWorthThrowing.mod_id, version = StuffWorthThrowing.version)
+@Mod(modid = StuffWorthThrowing.MOD_ID, version = StuffWorthThrowing.VERSION)
 public class StuffWorthThrowing {
 
-    public static final String mod_id = "renkin42swt";
-    public static final String version = "1710.1180.2.0";
+    public static final String MOD_ID = "renkin42swt";
+    public static final String VERSION = "1710.1180.2.0";
 
     static int startEntityId = 256;
 
@@ -49,13 +50,17 @@ public class StuffWorthThrowing {
         config = new Configuration(event.getSuggestedConfigurationFile());
 
         new StuffWorthThrowingConfig();
-        new StuffWorthThrowingItems();
+        StuffWorthThrowingItems.registerItems();
         new StuffWorthThrowingBlocks();
     }
 
     @EventHandler
     @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public void load(FMLInitializationEvent event) {
+        
+        if (event.getSide() == Side.CLIENT) {
+            StuffWorthThrowingItems.registerItemModels();
+        }
 
         new StuffWorthThrowingRecipes();
 

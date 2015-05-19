@@ -1,5 +1,6 @@
 package renkin42.stuffWorthThrowing.client;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -10,7 +11,7 @@ public class RenderTorturedSoul extends RenderLiving {
 	String textureName;
 	
 	public RenderTorturedSoul(String textureName) {
-		super(new ModelTorturedSoul(), 1.0F);
+		super(Minecraft.getMinecraft().getRenderManager(), new ModelTorturedSoul(), 1.0F);
 		this.textureName = textureName;
 	}
 	

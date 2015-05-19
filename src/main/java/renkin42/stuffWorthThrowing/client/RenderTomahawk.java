@@ -52,7 +52,7 @@ public class RenderTomahawk extends Render {
 
     @Override
     protected ResourceLocation getEntityTexture(Entity var1) {
-        return new ResourceLocation(StuffWorthThrowing.mod_id, this.tomahawkTexture);
+        return new ResourceLocation(StuffWorthThrowing.MOD_ID, this.tomahawkTexture);
     }
 
 }

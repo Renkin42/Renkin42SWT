@@ -1,16 +1,18 @@
 package renkin42.stuffWorthThrowing.items;
 
-import renkin42.stuffWorthThrowing.StuffWorthThrowing;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import renkin42.stuffWorthThrowing.StuffWorthThrowing;
 
 public class ItemNormal extends Item {
-	
-	public ItemNormal(String unlocalizedName) {
-		setMaxStackSize(64);
-		setCreativeTab(CreativeTabs.tabMaterials);
-		setUnlocalizedName(unlocalizedName);
-		setTextureName(StuffWorthThrowing.mod_id + ":" + unlocalizedName);
-	}
+
+    public final String name;
+
+    public ItemNormal(String unlocalizedName) {
+        this.name = unlocalizedName;
+        setMaxStackSize(64);
+        setCreativeTab(CreativeTabs.tabMaterials);
+        setUnlocalizedName(StuffWorthThrowing.MOD_ID + "_" + name);
+    }
 
 }

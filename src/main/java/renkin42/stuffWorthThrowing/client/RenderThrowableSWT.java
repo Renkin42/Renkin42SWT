@@ -40,7 +40,7 @@ public class RenderThrowableSWT extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity var1) {
-		return new ResourceLocation(StuffWorthThrowing.mod_id, this.textureString);
+		return new ResourceLocation(StuffWorthThrowing.MOD_ID, this.textureString);
 	}
 	
 	private void drawItem(Tessellator tessellator) {
